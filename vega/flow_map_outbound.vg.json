@@ -3,7 +3,7 @@
     "title": "Where Australians flew in 2025",
     "width": 1000,
     "height": 500,
-    "projection": {"type": "equalEarth"},
+    "projection": {"type": "equalEarth", "rotate": [-150, 0, 0]},
 
     "resolve": {
         "scale": {"size": "independent"}
