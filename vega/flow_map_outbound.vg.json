@@ -29,8 +29,8 @@
                 "size": {
                     "field": "visits_2025",
                     "type": "quantitative",
-                    "scale": {"range": [0.3, 6]},
-                    "legend": {"title": "Australians returning (year)"}
+                    "scale": {"range": [1.5, 14]},
+                    "legend": {"title": "Australians returning (year)", "format": ","}
                 },
                 "tooltip": [
                     {"field": "destination", "type": "nominal"},
@@ -47,7 +47,7 @@
                 "latitude": {"field": "dest_lat", "type": "quantitative"},
                 "size": {
                     "field": "visits_2025", "type": "quantitative",
-                    "scale": {"type": "sqrt", "range": [40, 1200]}, "legend": null
+                    "scale": {"type": "sqrt", "range": [40, 1200]}, "legend": {"title": "Amount of Visitors", "format": ","}
                 },
                 "color": {
                     "field": "category", "type": "nominal",
