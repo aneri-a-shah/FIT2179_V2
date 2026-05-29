@@ -1,0 +1,60 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Where Australians flew in 2025",
+    "width": 1000,
+    "height": 500,
+    "projection": {"type": "equalEarth"},
+
+    "layer": [
+        {
+            "data": {
+                "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+                "format": {"type": "topojson", "feature": "countries"}
+            },
+            "mark": {"type": "geoshape", "fill": "#eaeaea", "stroke": "#cfcfcf"}
+        },
+
+        {
+            "data": {"url": "data/ABS_arrival_departure.csv"},
+            "mark": {"type": "rule", "color": "#d94801", "opacity": 0.55},
+            "encoding": {
+                "longitude": {"datum": 133.0},
+                "latitude": {"datum": -25.0},
+                "longitude2": {"field": "dest_lon"},
+                "latitude2": {"field": "dest_lat"},
+                "size": {
+                    "field": "visits_2025",
+                    "type": "quantitative",
+                    "scale": {"range": [0.3, 6]},
+                    "legend": {"title": "Australians returning (year)"}
+                },
+                "tooltip": [
+                    {"field": "destination", "type": "nominal"},
+                    {"field": "visits_2025", "type": "quantitative", "format": ",", "title": "Visits (2025)"}
+                ]
+            }
+        },
+
+        {
+            "data": {"url": "data/ABS_arrival_departure.csv"},
+            "mark": {"type": "circle", "stroke": "white", "strokeWidth": 0.6},
+            "encoding": {
+                "longitude": {"field": "dest_lon", "type": "quantitative"},
+                "latitude": {"field": "dest_lat", "type": "quantitative"},
+                "size": {
+                    "field": "visits_2025", "type": "quantitative",
+                    "scale": {"range": [40, 1200]}, "legend": null
+                },
+                "color": {
+                    "field": "category", "type": "nominal",
+                    "legend": {"title": "Region"}
+                },
+                "tooltip": [
+                    {"field": "destination"},
+                    {"field": "category", "title": "Region"},
+                    {"field": "visits_2025", "format": ",", "title": "Visits"}
+                ]
+            }
+        }
+    ]
+}
