@@ -5,6 +5,10 @@
     "height": 500,
     "projection": {"type": "equalEarth"},
 
+    "resolve": {
+        "scale": {"size": "independent"}
+    },
+
     "layer": [
         {
             "data": {
@@ -43,16 +47,16 @@
                 "latitude": {"field": "dest_lat", "type": "quantitative"},
                 "size": {
                     "field": "visits_2025", "type": "quantitative",
-                    "scale": {"range": [40, 1200]}, "legend": null
+                    "scale": {"type": "sqrt", "range": [40, 1200]}, "legend": null
                 },
                 "color": {
                     "field": "category", "type": "nominal",
                     "legend": {"title": "Region"}
                 },
                 "tooltip": [
-                    {"field": "destination"},
-                    {"field": "category", "title": "Region"},
-                    {"field": "visits_2025", "format": ",", "title": "Visits"}
+                    {"field": "destination", "type": "nominal"},
+                    {"field": "category", "type": "nominal", "title": "Region"},
+                    {"field": "visits_2025", "type": "quantitative", "format": ",", "title": "Visits"}
                 ]
             }
         }
