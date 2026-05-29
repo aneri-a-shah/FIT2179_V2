@@ -1,0 +1,58 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Does the AUD drive where Australians travel?",
+        "subtitle": "Change in exchange rate vs change in visits, 2019 → 2025"
+    },
+    "width": 700,
+    "height": 500,
+    "data": {"url": "data/aud_travel.csv"},
+
+    "layer": [
+        {
+            "mark": {"type": "rule", "color": "#bbb", "strokeDash": [4, 4]},
+            "encoding": {"y": {"datum": 0}}
+        },
+        {
+            "mark": {"type": "rule", "color": "#bbb", "strokeDash": [4, 4]},
+            "encoding": {"x": {"datum": 0}}
+        },
+
+        {
+            "mark": {"type": "circle", "size": 220, "opacity": 0.85, "stroke": "white", "strokeWidth": 1.2},
+            "encoding": {
+                "x": {
+                    "field": "aud_change_pct",
+                    "type": "quantitative",
+                    "title": "Change in AUD value vs local currency (%)",
+                    "axis": {"format": ".0f"}
+                },
+                "y": {
+                    "field": "travel_change_pct",
+                    "type": "quantitative",
+                    "title": "Change in Australian visits (%)",
+                    "axis": {"format": ".0f"}
+                },
+                "color": {
+                    "field": "category",
+                    "type": "nominal",
+                    "legend": {"title": "Region"}
+                },
+                "tooltip": [
+                    {"field": "country", "type": "nominal"},
+                    {"field": "aud_change_pct", "type": "quantitative", "format": ".1f", "title": "AUD change (%)"},
+                    {"field": "travel_change_pct", "type": "quantitative", "format": ".1f", "title": "Travel change (%)"}
+                ]
+            }
+        },
+
+        {
+            "mark": {"type": "text", "dy": -14, "fontSize": 10, "color": "#333"},
+            "encoding": {
+                "x": {"field": "aud_change_pct", "type": "quantitative"},
+                "y": {"field": "travel_change_pct", "type": "quantitative"},
+                "text": {"field": "country", "type": "nominal"}
+            }
+        }
+    ]
+}
