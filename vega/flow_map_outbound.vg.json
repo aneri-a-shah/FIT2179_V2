@@ -24,8 +24,8 @@
             "encoding": {
                 "longitude": {"datum": 133.0},
                 "latitude": {"datum": -25.0},
-                "longitude2": {"field": "dest_lon"},
-                "latitude2": {"field": "dest_lat"},
+                "longitude2": {"field": "dest_lon", "type": "quantitative"},
+                "latitude2": {"field": "dest_lat", "type": "quantitative"},
                 "size": {
                     "field": "visits_2025",
                     "type": "quantitative",
