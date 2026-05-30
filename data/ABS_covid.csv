@@ -1,0 +1,25 @@
+﻿country,id,visits_2019,visits_2020,visits_2025,low_pct,recovery_pct,category
+Vietnam,704,317090,93710,632500,30,199,South-East Asia
+India,356,426120,186180,821440,44,193,Southern and Central Asia
+Indonesia,360,1400720,310350,2016730,22,144,South-East Asia
+Japan,392,522160,173020,1214400,33,233,North-East Asia
+Philippines,608,255190,84780,373180,33,146,South-East Asia
+Sri Lanka,144,102690,31630,169560,31,165,Southern and Central Asia
+Cambodia,116,48440,13440,45300,28,94,South-East Asia
+United States of America,840,1055600,235520,828820,22,79,Americas
+Greece,300,124880,5200,157850,4,126,Southern and Eastern Europe
+"UK, CIs & IOM",826,663430,146940,737720,22,111,North-West Europe
+Italy,380,261180,25990,347140,10,133,Southern and Eastern Europe
+New Zealand,554,1462830,438660,1770870,30,121,Oceania and Antarctica
+Singapore,702,416710,88150,456240,21,109,South-East Asia
+Canada,124,182790,62160,209110,34,114,Americas
+France,250,143400,26620,196020,19,137,North-West Europe
+South Africa,710,87480,30200,99830,35,114,Sub-Saharan Africa
+Malaysia,458,273450,81710,372400,30,136,South-East Asia
+Fiji,242,345020,66730,474790,19,138,Oceania and Antarctica
+Thailand,764,542920,117810,755030,22,139,South-East Asia
+Germany,276,115050,23920,118870,21,103,North-West Europe
+"Korea, South",410,84260,21590,163250,26,194,North-East Asia
+Taiwan,158,72100,24570,106980,34,148,North-East Asia
+China,156,607730,122120,861710,20,142,North-East Asia
+Hong Kong,344,217750,31990,218680,15,100,North-East Asia
