@@ -1,0 +1,76 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Which destinations recovered from COVID — and which didn't",
+        "subtitle": "Australian visits in 2025 compared with the 2019 baseline"
+    },
+    "width": 700,
+    "height": 600,
+    "data": {"url": "data/ABS_covid.csv"},
+
+    "transform": [
+        {"calculate": "datum.recovery_pct - 100", "as": "recovery_diff"}
+    ],
+
+    "encoding": {
+        "y": {
+            "field": "country",
+            "type": "nominal",
+            "sort": {"field": "recovery_diff", "order": "descending"},
+            "title": null,
+            "axis": {"labelLimit": 200, "labelFontSize": 11}
+        }
+    },
+
+    "layer": [
+        {
+            "mark": {"type": "rule", "color": "#333", "strokeWidth": 1},
+            "encoding": {"x": {"datum": 0}}
+        },
+
+        {
+            "mark": {"type": "bar", "stroke": "white", "strokeWidth": 0.5},
+            "encoding": {
+                "x": {
+                    "field": "recovery_diff",
+                    "type": "quantitative",
+                    "title": "Difference from 2019 baseline (percentage points)",
+                    "axis": {"format": "+.0f"}
+                },
+                "color": {
+                    "field": "recovery_diff",
+                    "type": "quantitative",
+                    "scale": {"scheme": "redblue", "domainMid": 0},
+                    "legend": null
+                },
+                "tooltip": [
+                    {"field": "country", "type": "nominal"},
+                    {"field": "category", "type": "nominal", "title": "Region"},
+                    {"field": "visits_2019", "type": "quantitative", "format": ",", "title": "Visits in 2019 (baseline)"},
+                    {"field": "visits_2020", "type": "quantitative", "format": ",", "title": "Visits in 2020 (COVID low)"},
+                    {"field": "low_pct", "type": "quantitative", "format": ".0f", "title": "2020 as % of baseline"},
+                    {"field": "visits_2025", "type": "quantitative", "format": ",", "title": "Visits in 2025"},
+                    {"field": "recovery_pct", "type": "quantitative", "format": ".0f", "title": "2025 recovery (%)"}
+                ]
+            }
+        },
+
+        {
+            "transform": [{"filter": "datum.recovery_diff >= 0"}],
+            "mark": {"type": "text", "align": "left", "dx": 4, "fontSize": 10, "color": "#333"},
+            "encoding": {
+                "x": {"field": "recovery_diff", "type": "quantitative"},
+                "text": {"field": "recovery_pct", "type": "quantitative", "format": ".0f"}
+            }
+        },
+
+        {
+            "transform": [{"filter": "datum.recovery_diff < 0"}],
+            "mark": {"type": "text", "align": "right", "dx": -4, "fontSize": 10, "color": "#333"},
+            "encoding": {
+                "x": {"field": "recovery_diff", "type": "quantitative"},
+                "text": {"field": "recovery_pct", "type": "quantitative", "format": ".0f"}
+            }
+        }
+    ]
+}

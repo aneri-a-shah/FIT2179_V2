@@ -1,0 +1,50 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "COVID recovery, mapped",
+        "subtitle": "Australian visits in 2025 as a share of 2019. Grey = no data or not in basemap."
+    },
+    "width": 1000,
+    "height": 500,
+    "projection": {"type": "equalEarth", "rotate": [-150, 0, 0]},
+
+    "data": {
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+        "format": {"type": "topojson", "feature": "countries"}
+    },
+
+    "transform": [
+        {
+            "lookup": "id",
+            "from": {
+                "data": {"url": "data/ABS_covid.csv"},
+                "key": "id",
+                "fields": ["country", "recovery_pct", "visits_2019", "visits_2020", "visits_2025", "low_pct", "category"]
+            }
+        },
+        {"calculate": "datum.recovery_pct - 100", "as": "recovery_diff"}
+    ],
+
+    "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+
+    "encoding": {
+        "color": {
+            "field": "recovery_diff",
+            "type": "quantitative",
+            "scale": {"scheme": "redblue", "domainMid": 0},
+            "legend": {
+                "title": "Difference from 2019 baseline (pp)",
+                "format": "+.0f"
+            }
+        },
+        "tooltip": [
+            {"field": "country", "type": "nominal"},
+            {"field": "category", "type": "nominal", "title": "Region"},
+            {"field": "visits_2019", "type": "quantitative", "format": ",", "title": "Visits in 2019 (baseline)"},
+            {"field": "visits_2020", "type": "quantitative", "format": ",", "title": "Visits in 2020 (COVID low)"},
+            {"field": "low_pct", "type": "quantitative", "format": ".0f", "title": "2020 as % of baseline"},
+            {"field": "visits_2025", "type": "quantitative", "format": ",", "title": "Visits in 2025"},
+            {"field": "recovery_pct", "type": "quantitative", "format": ".0f", "title": "2025 recovery (%)"}
+        ]
+    }
+}

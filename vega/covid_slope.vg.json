@@ -1,0 +1,65 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Australian travel: collapse and recovery",
+        "subtitle": "Each line is one destination. 100% = the 2019 baseline."
+    },
+    "width": 600,
+    "height": 500,
+    "data": {"url": "data/ABS_covid.csv"},
+
+    "transform": [
+        {"calculate": "100", "as": "baseline_pct"},
+        {
+            "fold": ["baseline_pct", "low_pct", "recovery_pct"],
+            "as": ["year_key", "pct"]
+        },
+        {
+            "calculate": "datum.year_key == 'baseline_pct' ? '2019' : (datum.year_key == 'low_pct' ? '2020' : '2025')",
+            "as": "year"
+        }
+    ],
+
+    "layer": [
+        {
+            "mark": {"type": "rule", "color": "#888", "strokeDash": [4, 4]},
+            "encoding": {"y": {"datum": 100}}
+        },
+
+        {
+            "mark": {"type": "line", "strokeWidth": 1.5, "opacity": 0.75, "point": {"filled": true, "size": 35}},
+            "encoding": {
+                "x": {
+                    "field": "year",
+                    "type": "ordinal",
+                    "title": null,
+                    "axis": {"labelAngle": 0, "labelFontSize": 13, "labelFontWeight": "bold"}
+                },
+                "y": {
+                    "field": "pct",
+                    "type": "quantitative",
+                    "title": "Visits as % of 2019 baseline",
+                    "scale": {"domain": [0, 200]},
+                    "axis": {"format": ".0f"}
+                },
+                "detail": {"field": "country", "type": "nominal"},
+                "color": {
+                    "field": "recovery_pct",
+                    "type": "quantitative",
+                    "scale": {"scheme": "redblue", "domainMid": 100},
+                    "legend": {
+                        "title": "2025 recovery (%)",
+                        "format": ".0f"
+                    }
+                },
+                "tooltip": [
+                    {"field": "country", "type": "nominal"},
+                    {"field": "category", "type": "nominal", "title": "Region"},
+                    {"field": "year", "type": "ordinal"},
+                    {"field": "pct", "type": "quantitative", "format": ".0f", "title": "% of 2019 baseline"},
+                    {"field": "recovery_pct", "type": "quantitative", "format": ".0f", "title": "2025 recovery (%)"}
+                ]
+            }
+        }
+    ]
+}
