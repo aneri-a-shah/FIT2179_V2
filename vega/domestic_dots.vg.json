@@ -1,11 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {"text": "Top domestic destinations", "subtitle": "Dot size = overnight visits per year"},
-    
-    "width": "container",
-    "height": 400,
-    "autosize": {"type": "fit", "contains": "padding"},
-    "projection": {"type": "mercator"},
+    "width": 500,
+    "height": 420,
+    "projection": {"type": "mercator", "center": [134, -28], "scale": 600},
 
     "layer": [
         {
@@ -13,23 +11,19 @@
                 "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.min.geojson",
                 "format": {"type": "json", "property": "features"}
             },
-            "mark": {"type": "geoshape", "fill": "#e5e5e5", "stroke": "#ffffff", "strokeWidth": 1.2}
+            "mark": {"type": "geoshape", "fill": "#f3f3f3", "stroke": "#bbb", "strokeWidth": 0.6}
         },
 
         {
             "data": {"url": "data/TRA_destinations.csv"},
-            "mark": {"type": "circle", "opacity": 0.8, "stroke": "black", "strokeWidth": 0.5},
+            "mark": {"type": "circle", "opacity": 0.75, "stroke": "white", "strokeWidth": 0.6},
             "encoding": {
                 "longitude": {"field": "lon", "type": "quantitative"},
                 "latitude": {"field": "lat", "type": "quantitative"},
                 "size": {
                     "field": "visits",
                     "type": "quantitative",
-                    "scale": {
-                        "type": "sqrt",
-                        "domain": [0, 12000000],
-                        "range": [0, 5000]
-                    },
+                    "scale": {"type": "sqrt", "range": [40, 1400]},
                     "legend": {"title": "Visits per year", "format": ".2s"}
                 },
                 "color": {
