@@ -8,6 +8,10 @@
     "height": 600,
     "data": {"url": "data/ABS_covid.csv"},
 
+    "transform": [
+        {"calculate": "datum.recovery_pct - 100", "as": "recovery_diff"}
+    ],
+
     "layer": [
         {
             "mark": {"type": "rule", "color": "#999", "strokeWidth": 1, "strokeDash": [3, 3]},
@@ -20,7 +24,7 @@
                 "y": {
                     "field": "country",
                     "type": "nominal",
-                    "sort": "-recovery_pct",
+                    "sort": {"field": "recovery_diff", "order": "descending"},
                     "title": null,
                     "axis": {
                         "labelLimit": 200,
@@ -63,7 +67,7 @@
                 "y": {
                     "field": "country",
                     "type": "nominal",
-                    "sort": "-recovery_pct"
+                    "sort": {"field": "recovery_diff", "order": "descending"}
                 },
                 "x": {"field": "recovery_pct", "type": "quantitative"},
                 "text": {"field": "recovery_pct", "type": "quantitative", "format": ".0f"}
@@ -77,7 +81,7 @@
                 "y": {
                     "field": "country",
                     "type": "nominal",
-                    "sort": "-recovery_pct"
+                    "sort": {"field": "recovery_diff", "order": "descending"}
                 },
                 "x": {"field": "recovery_pct", "type": "quantitative"},
                 "text": {"field": "recovery_pct", "type": "quantitative", "format": ".0f"}
