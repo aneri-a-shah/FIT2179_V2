@@ -21,20 +21,23 @@
                 "key": "id",
                 "fields": ["country", "recovery_pct", "visits_2019", "visits_2020", "visits_2025", "low_pct", "category"]
             }
-        },
-        {"calculate": "datum.recovery_pct - 100", "as": "recovery_diff"}
+        }
     ],
 
     "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
 
     "encoding": {
         "color": {
-            "field": "recovery_diff",
+            "condition": {
+                "test": "!isValid(datum.recovery_pct)",
+                "value": "#dddddd"
+            },
+            "field": "recovery_pct",
             "type": "quantitative",
-            "scale": {"scheme": "redblue", "domainMid": 0},
+            "scale": {"scheme": "redblue", "domainMid": 100, "domain": [50, 250]},
             "legend": {
-                "title": "Difference from 2019 baseline (pp)",
-                "format": "+.0f"
+                "title": "2025 recovery (% of 2019)",
+                "format": ".0f"
             }
         },
         "tooltip": [
