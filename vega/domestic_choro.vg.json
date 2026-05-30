@@ -1,0 +1,39 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Domestic visits by state", "subtitle": "Australian overnight visits, annual"},
+    "width": 500,
+    "height": 420,
+    "projection": {"type": "mercator", "center": [134, -28], "scale": 600},
+
+    "data": {
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.min.geojson",
+        "format": {"type": "json", "property": "features"}
+    },
+
+    "transform": [
+        {
+            "lookup": "properties.STATE_NAME",
+            "from": {
+                "data": {"url": "data/TRA_state_visitors.csv"},
+                "key": "state_full",
+                "fields": ["state_code", "visits_domestic"]
+            }
+        }
+    ],
+
+    "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.8},
+
+    "encoding": {
+        "color": {
+            "field": "visits_domestic",
+            "type": "quantitative",
+            "scale": {"scheme": "blues"},
+            "legend": {"title": "Domestic visits", "format": ".2s"}
+        },
+        "tooltip": [
+            {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
+            {"field": "state_code", "type": "nominal", "title": "Code"},
+            {"field": "visits_domestic", "type": "quantitative", "format": ",", "title": "Visits"}
+        ]
+    }
+}

@@ -54,3 +54,8 @@ p {
     width: 100%;
 }
 
+.chart-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1cm;
+}
