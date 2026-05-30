@@ -8,31 +8,34 @@
     "height": 600,
     "data": {"url": "data/ABS_covid.csv"},
 
-    "encoding": {
-        "y": {
-            "field": "country",
-            "type": "nominal",
-            "sort": {"field": "recovery_pct", "order": "descending"},
-            "title": null,
-            "axis": {"labelLimit": 200, "labelFontSize": 11}
-        }
-    },
-
     "layer": [
         {
-            "mark": {"type": "rule", "color": "#333", "strokeWidth": 1},
+            "mark": {"type": "rule", "color": "#999", "strokeWidth": 1, "strokeDash": [3, 3]},
             "encoding": {"x": {"datum": 100}}
         },
 
         {
             "mark": {"type": "bar", "stroke": "white", "strokeWidth": 0.5},
             "encoding": {
+                "y": {
+                    "field": "country",
+                    "type": "nominal",
+                    "sort": "-recovery_pct",
+                    "title": null,
+                    "axis": {
+                        "labelLimit": 200,
+                        "labelFontSize": 11,
+                        "domain": false,
+                        "ticks": false,
+                        "grid": false
+                    }
+                },
                 "x": {
                     "field": "recovery_pct",
                     "type": "quantitative",
                     "title": "Australian visits in 2025 (% of 2019 baseline)",
                     "scale": {"domain": [0, 260]},
-                    "axis": {"format": ".0f"}
+                    "axis": {"format": ".0f", "grid": false}
                 },
                 "x2": {"datum": 100},
                 "color": {
@@ -57,6 +60,11 @@
             "transform": [{"filter": "datum.recovery_pct >= 100"}],
             "mark": {"type": "text", "align": "left", "dx": 4, "fontSize": 10, "color": "#333"},
             "encoding": {
+                "y": {
+                    "field": "country",
+                    "type": "nominal",
+                    "sort": "-recovery_pct"
+                },
                 "x": {"field": "recovery_pct", "type": "quantitative"},
                 "text": {"field": "recovery_pct", "type": "quantitative", "format": ".0f"}
             }
@@ -66,6 +74,11 @@
             "transform": [{"filter": "datum.recovery_pct < 100"}],
             "mark": {"type": "text", "align": "right", "dx": -4, "fontSize": 10, "color": "#333"},
             "encoding": {
+                "y": {
+                    "field": "country",
+                    "type": "nominal",
+                    "sort": "-recovery_pct"
+                },
                 "x": {"field": "recovery_pct", "type": "quantitative"},
                 "text": {"field": "recovery_pct", "type": "quantitative", "format": ".0f"}
             }
