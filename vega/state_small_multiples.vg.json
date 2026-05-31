@@ -6,10 +6,12 @@
     "facet": {
         "field": "state",
         "type": "nominal",
-        "columns": 4,
         "title": null,
         "header": {"labelFontSize": 11, "labelFontWeight": "bold"}
     },
+    
+    "columns": 4,
+    
     "spec": {
         "width": 85,
         "height": 100,
