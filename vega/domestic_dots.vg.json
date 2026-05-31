@@ -3,26 +3,38 @@
     "title": {"text": "Top domestic destinations", "subtitle": "Dot size = overnight visits per year"},
     "width": 450,
     "height": 350,
-    "projection": {"type": "mercator", "center": [133, -28], "scale": 500},
-
+    "projection": {
+        "type": "mercator",
+        "center": [133, -28],
+        "scale": 500
+    },
     "layer": [
         {
             "data": {
-                "url": "data/aus_states_clean.json",
-                "format": {"type": "json", "property": "features"}
+                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_50m_admin_1_states_provinces.topojson",
+                "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
             },
-            "mark": {"type": "geoshape", "fill": "#f3f3f3", "stroke": "#bbb", "strokeWidth": 0.6}
+            "transform": [
+                {
+                    "filter": "datum.properties.admin == 'Australia'"
+                }
+            ],
+            "mark": {"type": "geoshape", "fill": "#e5e5e5", "stroke": "white", "strokeWidth": 1}
         },
         {
             "data": {"url": "data/TRA_destinations.csv"},
-            "mark": {"type": "circle", "opacity": 0.6, "stroke": "white", "strokeWidth": 0.6},
+            "mark": {"type": "circle", "opacity": 0.7, "stroke": "black", "strokeWidth": 0.5},
             "encoding": {
                 "longitude": {"field": "lon", "type": "quantitative"},
                 "latitude":  {"field": "lat", "type": "quantitative"},
                 "size": {
                     "field": "visits",
                     "type": "quantitative",
-                    "scale": {"type": "sqrt", "range": [80, 4000]},
+                    "scale": {
+                        "type": "sqrt", 
+                        "domain": [0, 12000000],
+                        "range": [0, 4000]
+                    },
                     "legend": {"title": "Visits per year", "format": ".2s"}
                 },
                 "color": {
