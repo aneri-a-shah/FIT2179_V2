@@ -64,7 +64,7 @@
                         "domain": ["Day", "Overnight"],
                         "range": ["#e8a33d", "#3b6b9c"]
                     },
-                    "legend": {"title": "Trip type", "orient": "top-right"}
+                    "legend": {"title": "Trip type", "orient": "bottom", "direction": "horizontal", "titleOrient": "top"}
                 },
                 "tooltip": [
                     {"field": "state", "type": "nominal", "title": "State"},
