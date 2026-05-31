@@ -1,14 +1,15 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {"text": "Top domestic destinations", "subtitle": "Dot size = overnight visits per year"},
-    "width": 450,
-    "height": 380,
-    "projection": {"type": "mercator", "center": [134, -28], "scale": 550},
+    "width": "container",
+    "height": 400,
+    "autosize": {"type": "fit", "contains": "padding"},
+    "projection": {"type": "mercator"},
 
     "layer": [
         {
             "data": {
-                "url": "data/aus_states.geojson",
+                "url": "data/aus_states_clean.json",
                 "format": {"type": "json", "property": "features"}
             },
             "mark": {"type": "geoshape", "fill": "#f3f3f3", "stroke": "#bbb", "strokeWidth": 0.6}
