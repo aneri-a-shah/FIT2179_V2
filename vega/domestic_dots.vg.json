@@ -34,7 +34,7 @@
                 "color": {
                     "field": "state",
                     "type": "nominal",
-                    "legend": {"title": "State"}
+                    "legend": {"title": "State", "orient": "top", "direction": "horizontal", "titleOrient": "top"}
                 },
                 "opacity": {
                     "condition": {"param": "hover", "value": 0.85},
