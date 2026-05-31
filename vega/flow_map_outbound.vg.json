@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Where Australians flew in 2025",
-    "width": 1000,
+    "width": "container",
     "height": 500,
     "projection": {"type": "equalEarth", "rotate": [-150, 0, 0]},
 
@@ -47,7 +47,8 @@
                 "latitude": {"field": "dest_lat", "type": "quantitative"},
                 "size": {
                     "field": "visits_2025", "type": "quantitative",
-                    "scale": {"type": "sqrt", "range": [40, 1200]}
+                    "scale": {"type": "sqrt", "range": [40, 1200]},
+                    "legend": null
                 },
                 "color": {
                     "field": "category", "type": "nominal",
