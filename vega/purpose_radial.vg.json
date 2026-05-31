@@ -1,0 +1,39 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Why Australians Travel", "subtitle": "Domestic trips by purpose (2025)"},
+    "width": "container",
+    "height": 380,
+    "autosize": {"type": "fit", "contains": "padding"},
+    "data": {"url": "data/TRA_purpose.csv"},
+    "mark": {
+        "type": "arc",
+        "innerRadius": 40,
+        "stroke": "white",
+        "strokeWidth": 1.5
+    },
+    "encoding": {
+        "theta": {
+            "field": "purpose",
+            "type": "nominal"
+        },
+        "radius": {
+            "field": "trips",
+            "type": "quantitative",
+            "scale": {
+                "type": "sqrt", 
+                "zero": true, 
+                "rangeMin": 40
+            }
+        },
+        "color": {
+            "field": "purpose",
+            "type": "nominal",
+            "scale": {"scheme": "set2"},
+            "legend": {"title": "Reason for Travel", "orient": "right"}
+        },
+        "tooltip": [
+            {"field": "purpose", "type": "nominal", "title": "Purpose"},
+            {"field": "trips", "type": "quantitative", "format": ",", "title": "Total Trips"}
+        ]
+    }
+}
