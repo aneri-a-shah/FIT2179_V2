@@ -28,7 +28,7 @@
             "field": "visits_domestic",
             "type": "quantitative",
             "scale": {"scheme": "blues"},
-            "legend": {"title": "Domestic visits", "format": ".2s", "orient": "bottom", "direction": "horizontal", "titleOrient": "top"}
+            "legend": {"title": "Domestic visits", "format": ".2s", "orient": "top", "direction": "horizontal", "titleOrient": "top"}
         },
         "tooltip": [
             {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
