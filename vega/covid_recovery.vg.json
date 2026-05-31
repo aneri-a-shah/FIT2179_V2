@@ -5,7 +5,7 @@
         "subtitle": "Australian visits in 2025 as a % of the 2019 baseline"
     },
     "width": "container",
-    "height": 600,
+    "height": 500,
     "data": {"url": "data/ABS_covid.csv"},
 
     "transform": [
