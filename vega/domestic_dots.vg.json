@@ -2,12 +2,8 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {"text": "Top domestic destinations", "subtitle": "Dot size = overnight visits per year"},
     "width": 450,
-    "height": 350,
-    "projection": {
-        "type": "mercator",
-        "center": [133, -28],
-        "scale": 500
-    },
+    "height": 380,
+    "projection": {"type": "mercator", "center": [133, -28], "scale": 550},
     "layer": [
         {
             "data": {
@@ -19,11 +15,11 @@
                     "filter": "datum.properties.admin == 'Australia'"
                 }
             ],
-            "mark": {"type": "geoshape", "fill": "#e5e5e5", "stroke": "white", "strokeWidth": 1}
+            "mark": {"type": "geoshape", "fill": "#f3f3f3", "stroke": "#bbb", "strokeWidth": 0.6}
         },
         {
             "data": {"url": "data/TRA_destinations.csv"},
-            "mark": {"type": "circle", "opacity": 0.7, "stroke": "black", "strokeWidth": 0.5},
+            "mark": {"type": "circle", "opacity": 0.6, "stroke": "white", "strokeWidth": 0.6},
             "encoding": {
                 "longitude": {"field": "lon", "type": "quantitative"},
                 "latitude":  {"field": "lat", "type": "quantitative"},
@@ -32,7 +28,7 @@
                     "type": "quantitative",
                     "scale": {
                         "type": "sqrt", 
-                        "domain": [0, 12000000],
+                        "domain": [0, 12000000], 
                         "range": [0, 4000]
                     },
                     "legend": {"title": "Visits per year", "format": ".2s"}
