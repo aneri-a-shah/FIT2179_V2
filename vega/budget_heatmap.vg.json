@@ -7,25 +7,25 @@
     "data": {"url": "data/TRA_budget_data.csv"},
     "transform": [
         {
-            "joinaggregate": [{"op": "sum", "field": "Amount", "as": "TotalQuarterSpend"}],
-            "groupby": ["Quarter"]
+            "joinaggregate": [{"op": "sum", "field": "amount", "as": "TotalQuarterSpend"}],
+            "groupby": ["quarter"]
         },
         {
-            "calculate": "datum.Amount / datum.TotalQuarterSpend",
+            "calculate": "datum.amount / datum.TotalQuarterSpend",
             "as": "PercentOfBudget"
         }
     ],
     "mark": {"type": "rect", "tooltip": true, "cornerRadius": 4},
     "encoding": {
         "x": {
-            "field": "Quarter",
+            "field": "quarter",
             "type": "nominal",
             "title": null,
-            "sort": ["March 2025", "June 2025", "September 2025", "December 2025"],
+            "sort": ["March", "June", "September", "December"],
             "axis": {"labelAngle": -45}
         },
         "y": {
-            "field": "Category",
+            "field": "category",
             "type": "nominal",
             "title": null
         },
@@ -36,9 +36,9 @@
             "legend": {"title": "% of Budget", "format": ".0%"}
         },
         "tooltip": [
-            {"field": "Quarter", "type": "nominal"},
-            {"field": "Category", "type": "nominal"},
-            {"field": "Amount", "type": "quantitative", "title": "Actual Spend ($M)", "format": "$,.0f"},
+            {"field": "quarter", "type": "nominal", "title": "Quarter"},
+            {"field": "category", "type": "nominal", "title": "Category"},
+            {"field": "amount", "type": "quantitative", "title": "Actual Spend ($M)", "format": "$,.0f"},
             {"field": "PercentOfBudget", "type": "quantitative", "title": "Share of Budget", "format": ".1%"}
         ]
     }
