@@ -11,11 +11,12 @@
     "params": [
         {
             "name": "hover",
-            "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
-        },
-        {
-            "name": "legend_hover",
-            "select": {"type": "point", "fields": ["category"]},
+            "select": {
+                "type": "point", 
+                "fields": ["category"], 
+                "on": "mouseover", 
+                "clear": "mouseout"
+            },
             "bind": "legend"
         }
     ],
@@ -29,10 +30,7 @@
             "legend": {"title": "Expense Category", "orient": "right"}
         },
         "opacity": {
-            "condition": [
-                {"param": "hover", "empty": false, "value": 1},
-                {"param": "legend_hover", "empty": false, "value": 1}
-            ],
+            "condition": {"param": "hover", "value": 1},
             "value": 0.2
         },
         "tooltip": [
