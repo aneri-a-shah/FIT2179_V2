@@ -48,7 +48,7 @@
                 "size": {
                     "field": "visits_2025", "type": "quantitative",
                     "scale": {"type": "sqrt", "range": [40, 1200]},
-                    "legend": null
+                    "legend": {"title": "Destination Visits", "orient": "bottom", "direction": "horizontal"}
                 },
                 "color": {
                     "field": "category", "type": "nominal",
