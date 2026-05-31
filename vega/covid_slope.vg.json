@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-        "text": "Australian travel: collapse and recovery",
-        "subtitle": "Each line is one destination. 100% = the 2019 baseline. Hover a line to highlight it."
+        "text": "Collapse and recovery of Australian travel (Pre and Post COVID)"
     },
     "width": "container",
     "height": 500,
@@ -52,7 +51,7 @@
                     "field": "recovery_pct",
                     "type": "quantitative",
                     "scale": {"scheme": "redblue", "domainMid": 100, "domain": [50, 250]},
-                    "legend": {"title": "2025 recovery (%)", "format": ".0f", "orient": "bottom", "direction": "horizontal", "titleOrient": "top"}
+                    "legend": {"title": "2025 recovery (%)", "format": ".0f", "orient": "bottom", "direction": "horizontal", "titleAnchor": "middle", "titleOrient": "top"}
                 },
                 "opacity": {
                     "condition": {"param": "country_hover", "value": 1, "empty": true},

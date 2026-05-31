@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-        "text": "Does the AUD drive where Australians travel?",
-        "subtitle": "Change in exchange rate vs change in visits, 2019 → 2025"
+        "text": "How the exchange rate drives where Australians travel?"
     },
     "width": "container",
     "height": 400,

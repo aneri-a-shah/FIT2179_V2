@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-        "text": "Day trips vs overnight trips",
-        "subtitle": "Annual domestic trips by Australians, 2019–2025"
+        "text": "Annual domestic day trips vs overnight trips by Australians"
     },
     "width": "container",
     "height": 420,

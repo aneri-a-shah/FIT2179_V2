@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "The 2025 Tourism Wallet", "subtitle": "Total expenditure breakdown (Dec)"},
+    "title": {"text": "The 2025 Tourism Wallet: Expenditure breakdown from 2025"},
     "width": "container",
     "height": 300,
     "autosize": {"type": "fit", "contains": "padding"},

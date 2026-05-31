@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Top domestic destinations", "subtitle": "Dot size = overnight visits per year"},
+    "title": {"text": "Most visited destinations within Australia"},
     "width": "container",
     "height": 420,
     "projection": {"type": "mercator", "center": [134, -28], "scale": 600},

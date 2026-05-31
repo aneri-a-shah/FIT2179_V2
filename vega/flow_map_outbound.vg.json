@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Where Australians flew in 2025",
+    "title": "Most popular hotspots Australian's travelled to in 2025",
     "width": "container",
     "height": 500,
     "projection": {"type": "equalEarth", "rotate": [-150, 0, 0]},
@@ -52,7 +52,7 @@
                 },
                 "color": {
                     "field": "category", "type": "nominal",
-                    "legend": {"title": "Region", "orient": "top", "direction": "horizontal", "titleAnchor": "middle", "symbolType": "stroke"}
+                    "legend": {"title": "Region", "orient": "top", "direction": "horizontal", "titleAnchor": "middle"}
                 },
                 "tooltip": [
                     {"field": "destination", "type": "nominal"},

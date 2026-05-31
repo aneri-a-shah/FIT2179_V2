@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Budget Shifts Across the Year", "subtitle": "Category as % of total quarterly spend"},
+    "title": {"text": "Budget Shifts Across the Year"},
     "width": "container",
     "height": 300,
     "autosize": {"type": "fit", "contains": "padding"},

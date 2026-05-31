@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-        "text": "Which destinations recovered from COVID — and which didn't",
+        "text": "How well did popular destinations recover from COVID",
         "subtitle": "Australian visits in 2025 as a % of the 2019 baseline"
     },
     "width": "container",

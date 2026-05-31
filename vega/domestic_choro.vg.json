@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Domestic visits by state", "subtitle": "Australian overnight visits, annual"},
+    "title": {"text": "Top states for domestic travel"},
     "width": "container",
     "height": 420,
     "projection": {"type": "mercator", "center": [134, -28], "scale": 600},

@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Why Australians Travel", "subtitle": "Domestic trips by purpose (2025)"},
+    "title": {"text": "Domestic trips based on purpose in 2025"},
     "width": "container",
     "height": 380,
     "autosize": {"type": "fit", "contains": "padding"},

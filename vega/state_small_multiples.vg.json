@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Individual Recovery", "subtitle": "2019-2025 trajectory"},
+    "title": {"text": "Individual State Recovery"},
     "data": {"url": "data/TRA_international.csv"},
     
     "facet": {
