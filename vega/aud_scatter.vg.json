@@ -5,7 +5,7 @@
         "subtitle": "Change in exchange rate vs change in visits, 2019 → 2025"
     },
     "width": "container",
-    "height": 500,
+    "height": 400,
     "data": {"url": "data/aud_travel.csv"},
 
     "layer": [
@@ -41,7 +41,7 @@
                 "color": {
                     "field": "category",
                     "type": "nominal",
-                    "legend": {"title": "Region", "orient": "bottom", "direction": "horizontal", "titleOrient": "top", "labelLimit": 100}
+                    "legend": {"title": "Region", "orient": "bottom", "direction": "horizontal", "titleOrient": "top"}
                 },
                 "opacity": {
                     "condition": {"param": "hover", "value": 0.85},

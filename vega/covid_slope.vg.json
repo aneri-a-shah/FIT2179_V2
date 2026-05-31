@@ -4,7 +4,7 @@
         "text": "Australian travel: collapse and recovery",
         "subtitle": "Each line is one destination. 100% = the 2019 baseline. Hover a line to highlight it."
     },
-    "width": 600,
+    "width": "container",
     "height": 500,
     "data": {"url": "data/ABS_covid.csv"},
 
@@ -52,7 +52,7 @@
                     "field": "recovery_pct",
                     "type": "quantitative",
                     "scale": {"scheme": "redblue", "domainMid": 100, "domain": [50, 250]},
-                    "legend": {"title": "2025 recovery (%)", "format": ".0f"}
+                    "legend": {"title": "2025 recovery (%)", "format": ".0f", "orient": "bottom", "direction": "horizontal", "titleOrient": "top"}
                 },
                 "opacity": {
                     "condition": {"param": "country_hover", "value": 1, "empty": true},

@@ -4,7 +4,7 @@
         "text": "Which destinations recovered from COVID — and which didn't",
         "subtitle": "Australian visits in 2025 as a % of the 2019 baseline"
     },
-    "width": 700,
+    "width": "container",
     "height": 600,
     "data": {"url": "data/ABS_covid.csv"},
 
@@ -19,12 +19,6 @@
         },
 
         {
-            "params": [
-                {
-                    "name": "hover",
-                    "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
-                }
-            ],
             "mark": {"type": "bar", "stroke": "white", "strokeWidth": 0.5},
             "encoding": {
                 "y": {
@@ -54,10 +48,6 @@
                     "scale": {"scheme": "redblue", "domainMid": 100, "domain": [50, 250]},
                     "legend": null
                 },
-                "opacity": {
-                    "condition": {"param": "hover", "value": 1},
-                    "value": 0.3
-                },
                 "tooltip": [
                     {"field": "country", "type": "nominal"},
                     {"field": "category", "type": "nominal", "title": "Region"},
@@ -72,7 +62,7 @@
 
         {
             "transform": [{"filter": "datum.recovery_pct >= 100"}],
-            "mark": {"type": "text", "align": "left", "dx": 4, "fontSize": 10},
+            "mark": {"type": "text", "align": "left", "dx": 4, "fontSize": 10, "color": "#333"},
             "encoding": {
                 "y": {
                     "field": "country",
@@ -80,18 +70,13 @@
                     "sort": {"field": "recovery_diff", "order": "descending"}
                 },
                 "x": {"field": "recovery_pct", "type": "quantitative"},
-                "text": {"field": "recovery_pct", "type": "quantitative", "format": ".0f"},
-                "color": {"value": "#333"},
-                "opacity": {
-                    "condition": {"param": "hover", "value": 1},
-                    "value": 0.1
-                }
+                "text": {"field": "recovery_pct", "type": "quantitative", "format": ".0f"}
             }
         },
 
         {
             "transform": [{"filter": "datum.recovery_pct < 100"}],
-            "mark": {"type": "text", "align": "right", "dx": -4, "fontSize": 10},
+            "mark": {"type": "text", "align": "right", "dx": -4, "fontSize": 10, "color": "#333"},
             "encoding": {
                 "y": {
                     "field": "country",
@@ -99,12 +84,7 @@
                     "sort": {"field": "recovery_diff", "order": "descending"}
                 },
                 "x": {"field": "recovery_pct", "type": "quantitative"},
-                "text": {"field": "recovery_pct", "type": "quantitative", "format": ".0f"},
-                "color": {"value": "#333"},
-                "opacity": {
-                    "condition": {"param": "hover", "value": 1},
-                    "value": 0.1
-                }
+                "text": {"field": "recovery_pct", "type": "quantitative", "format": ".0f"}
             }
         }
     ]
