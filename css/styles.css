@@ -30,6 +30,7 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     padding: 40px;
     margin-bottom: 40px;
+    overflow: hidden;
 }
 
 .title {
@@ -59,11 +60,13 @@ p {
 }
 
 .chart {
-    margin: 0.4rem 0 1.2rem;
+    width: 100%;
+    margin: 1rem 0;
 }
 
 .chart.full-width {
     width: 100%;
+    margin: 1rem 0;
 }
 
 .chart-row {
@@ -74,4 +77,11 @@ p {
 
 .chart-row > .chart {
     min-width: 0;
+}
+
+.content-split {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
 }
