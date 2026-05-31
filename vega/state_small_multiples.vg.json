@@ -1,19 +1,17 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {
-        "text": "The Battle for International Tourists", 
-        "subtitle": "Visitor recovery trajectory by state (2019-2025)"
-    },
+    "title": {"text": "Individual Recovery", "subtitle": "2019-2025 trajectory"},
     "data": {"url": "data/TRA_international.csv"},
-    "width":"container",
+    
+    "width": "container",
     "autosize": {"type": "fit", "contains": "padding"},
-
+    
     "facet": {
         "field": "state",
         "type": "nominal",
         "columns": 4,
         "title": null,
-        "header": {"labelFontSize": 13, "labelFontWeight": "bold"}
+        "header": {"labelFontSize": 11, "labelFontWeight": "bold"}
     },
     "spec": {
         "height": 120,
@@ -27,13 +25,13 @@
                 "field": "year",
                 "type": "ordinal",
                 "title": null,
-                "axis": {"labelAngle": -45}
+                "axis": {"labelAngle": -45, "labelFontSize": 9}
             },
             "y": {
                 "field": "visitors",
                 "type": "quantitative",
-                "title": "International Visitors",
-                "axis": {"format": ".2s"}
+                "title": "Visitors",
+                "axis": {"format": ".2s", "titleFontSize": 10, "labelFontSize": 9}
             },
             "color": {
                 "field": "state",
@@ -43,8 +41,7 @@
             "tooltip": [
                 {"field": "state_full", "type": "nominal", "title": "State"},
                 {"field": "year", "type": "ordinal", "title": "Year"},
-                {"field": "visitors", "type": "quantitative", "format": ",", "title": "Visitors"},
-                {"field": "nights", "type": "quantitative", "format": ",", "title": "Nights"}
+                {"field": "visitors", "type": "quantitative", "format": ",", "title": "Visitors"}
             ]
         }
     }
