@@ -28,7 +28,7 @@
             "field": "purpose",
             "type": "nominal",
             "scale": {"scheme": "set2"},
-            "legend": {"title": "Reason for Travel"}
+            "legend": {"title": "Reason for Travel", "orient": "bottom", "direction": "horizontal"}
         },
         "tooltip": [
             {"field": "purpose", "type": "nominal", "title": "Purpose"},

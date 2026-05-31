@@ -33,7 +33,7 @@
             "field": "PercentOfBudget",
             "type": "quantitative",
             "scale": {"scheme": "oranges"},
-            "legend": {"title": "% of Budget", "format": ".0%"}
+            "legend": {"title": "% of Budget", "format": ".0%", "orient": "bottom", "direction": "horizontal"}
         },
         "tooltip": [
             {"field": "quarter", "type": "nominal", "title": "Quarter"},

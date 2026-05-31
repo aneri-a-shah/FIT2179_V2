@@ -4,7 +4,7 @@
     "data": {"url": "data/TRA_international.csv"},
     
     "width": "container",
-    "height": 330,
+    "height": 350,
     "autosize": {"type": "fit", "contains": "padding"},
     
     "mark": {

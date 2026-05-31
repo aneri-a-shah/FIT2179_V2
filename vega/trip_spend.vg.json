@@ -5,7 +5,7 @@
         "subtitle": "Average spend per visitor (AUD), by state — Year Ending June 2024"
     },
     "width": "container",
-    "height": 380,
+    "height": 420,
     "data": {"url": "data/TRA_spend_state.csv"},
 
     "transform": [

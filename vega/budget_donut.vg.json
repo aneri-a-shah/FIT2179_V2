@@ -27,7 +27,7 @@
             "field": "category",
             "type": "nominal",
             "scale": {"scheme": "set2"},
-            "legend": {"title": "Expense Category", "orient": "right"}
+            "legend": {"title": "Expense Category", "orient": "bottom", "direction": "horizontal"}
         },
         "opacity": {
             "condition": {"param": "hover", "value": 1},
