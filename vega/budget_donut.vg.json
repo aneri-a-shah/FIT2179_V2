@@ -8,6 +8,17 @@
     "transform": [
         {"filter": "datum.quarter == 'December'"}
     ],
+    "params": [
+        {
+            "name": "hover",
+            "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
+        },
+        {
+            "name": "legend_hover",
+            "select": {"type": "point", "fields": ["category"]},
+            "bind": "legend"
+        }
+    ],
     "mark": {"type": "arc", "innerRadius": 60, "stroke": "white", "strokeWidth": 2},
     "encoding": {
         "theta": {"field": "amount", "type": "quantitative"},
@@ -16,6 +27,13 @@
             "type": "nominal",
             "scale": {"scheme": "set2"},
             "legend": {"title": "Expense Category", "orient": "right"}
+        },
+        "opacity": {
+            "condition": [
+                {"param": "hover", "empty": false, "value": 1},
+                {"param": "legend_hover", "empty": false, "value": 1}
+            ],
+            "value": 0.2
         },
         "tooltip": [
             {"field": "category", "type": "nominal", "title": "Category"},

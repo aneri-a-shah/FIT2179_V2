@@ -15,7 +15,13 @@
         },
         {
             "data": {"url": "data/TRA_destinations.csv"},
-            "mark": {"type": "circle", "opacity": 0.75, "stroke": "white", "strokeWidth": 0.6},
+            "params": [
+                {
+                    "name": "hover",
+                    "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
+                }
+            ],
+            "mark": {"type": "circle", "stroke": "white", "strokeWidth": 0.6},
             "encoding": {
                 "longitude": {"field": "lon", "type": "quantitative"},
                 "latitude": {"field": "lat", "type": "quantitative"},
@@ -29,6 +35,10 @@
                     "field": "state",
                     "type": "nominal",
                     "legend": {"title": "State"}
+                },
+                "opacity": {
+                    "condition": {"param": "hover", "value": 0.85},
+                    "value": 0.15
                 },
                 "tooltip": [
                     {"field": "destination", "type": "nominal"},
