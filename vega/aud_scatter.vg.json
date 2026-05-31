@@ -4,8 +4,8 @@
         "text": "Does the AUD drive where Australians travel?",
         "subtitle": "Change in exchange rate vs change in visits, 2019 → 2025"
     },
-    "width": 700,
-    "height": 500,
+    "width": "container",
+    "height": 300,
     "data": {"url": "data/aud_travel.csv"},
 
     "layer": [

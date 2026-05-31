@@ -81,7 +81,12 @@ p {
 
 .content-split {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.chart-col {
+    width: 100%;
+    min-width: 0;
 }
