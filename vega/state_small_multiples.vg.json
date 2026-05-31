@@ -3,9 +3,6 @@
     "title": {"text": "Individual Recovery", "subtitle": "2019-2025 trajectory"},
     "data": {"url": "data/TRA_international.csv"},
     
-    "width": "container",
-    "autosize": {"type": "fit", "contains": "padding"},
-    
     "facet": {
         "field": "state",
         "type": "nominal",
@@ -14,10 +11,11 @@
         "header": {"labelFontSize": 11, "labelFontWeight": "bold"}
     },
     "spec": {
-        "height": 120,
+        "width": 85,
+        "height": 100,
         "mark": {
             "type": "line", 
-            "point": {"filled": true, "size": 30}, 
+            "point": {"filled": true, "size": 25}, 
             "strokeWidth": 2
         },
         "encoding": {
@@ -25,13 +23,13 @@
                 "field": "year",
                 "type": "ordinal",
                 "title": null,
-                "axis": {"labelAngle": -45, "labelFontSize": 9}
+                "axis": {"labelAngle": -45, "labelFontSize": 9, "labelOverlap": true}
             },
             "y": {
                 "field": "visitors",
                 "type": "quantitative",
                 "title": "Visitors",
-                "axis": {"format": ".2s", "titleFontSize": 10, "labelFontSize": 9}
+                "axis": {"format": ".1s", "titleFontSize": 10, "labelFontSize": 9}
             },
             "color": {
                 "field": "state",
