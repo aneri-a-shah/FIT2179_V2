@@ -24,7 +24,7 @@
                 "size": {
                     "field": "visits",
                     "type": "quantitative",
-                    "scale": {"type": "sqrt", "range": [80, 4000]},
+                    "scale": {"type": "sqrt", "range": [80, 1400]},
                     "legend": {"title": "Visits per year", "format": ".2s"}
                 },
                 "color": {
