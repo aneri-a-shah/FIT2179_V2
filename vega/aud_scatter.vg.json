@@ -17,9 +17,14 @@
             "mark": {"type": "rule", "color": "#bbb", "strokeDash": [4, 4]},
             "encoding": {"x": {"datum": 0}}
         },
-
         {
-            "mark": {"type": "circle", "size": 220, "opacity": 0.85, "stroke": "white", "strokeWidth": 1.2},
+            "params": [
+                {
+                    "name": "hover",
+                    "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
+                }
+            ],
+            "mark": {"type": "circle", "size": 220, "stroke": "white", "strokeWidth": 1.2},
             "encoding": {
                 "x": {
                     "field": "aud_change_pct",
@@ -38,6 +43,10 @@
                     "type": "nominal",
                     "legend": {"title": "Region"}
                 },
+                "opacity": {
+                    "condition": {"param": "hover", "value": 0.85},
+                    "value": 0.15
+                },
                 "tooltip": [
                     {"field": "country", "type": "nominal"},
                     {"field": "aud_change_pct", "type": "quantitative", "format": ".1f", "title": "AUD change (%)"},
@@ -45,13 +54,17 @@
                 ]
             }
         },
-
         {
-            "mark": {"type": "text", "dy": -14, "fontSize": 10, "color": "#333"},
+            "mark": {"type": "text", "dy": -14, "fontSize": 10},
             "encoding": {
                 "x": {"field": "aud_change_pct", "type": "quantitative"},
                 "y": {"field": "travel_change_pct", "type": "quantitative"},
-                "text": {"field": "country", "type": "nominal"}
+                "text": {"field": "country", "type": "nominal"},
+                "color": {"value": "#333"},
+                "opacity": {
+                    "condition": {"param": "hover", "value": 1},
+                    "value": 0.1
+                }
             }
         }
     ]
