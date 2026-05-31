@@ -29,7 +29,7 @@
                     "field": "visits",
                     "type": "quantitative",
                     "scale": {"type": "sqrt", "range": [40, 1400]},
-                    "legend": {"title": "Visits per year", "format": ".2s", "orient": "bottom", "direction": "vertical", "titleOrient": "top"}
+                    "legend": {"title": "Visits per year", "format": ".2s", "orient": "bottom", "direction": "horizontal", "titleOrient": "top"}
                 },
                 "color": {
                     "field": "state",
