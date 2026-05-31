@@ -1,13 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {"text": "Domestic visits by state", "subtitle": "Australian overnight visits, annual"},
-    "width": "container",
-    "height": 400,
-    "autosize": {"type": "fit", "contains": "padding"},
-    "projection": {"type": "mercator"},
+    "width": 450,
+    "height": 350,
+    "projection": {"type": "mercator", "center": [133, -28], "scale": 500},
 
     "data": {
-        "url": "data/aus_states.geojson",
+        "url": "data/aus_states_clean.json",
         "format": {"type": "json", "property": "features"}
     },
 
