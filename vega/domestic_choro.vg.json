@@ -7,7 +7,7 @@
     "projection": {"type": "mercator", "center": [134, -28], "scale": 600},
 
     "data": {
-        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.min.geojson",
+        "url": "data/aus_states.geojson",
         "format": {"type": "json", "property": "features"}
     },
 
