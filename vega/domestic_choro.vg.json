@@ -1,19 +1,18 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {"text": "Domestic visits by state", "subtitle": "Australian overnight visits, annual"},
-    "width": 450,
-    "height": 380,
-    "projection": {"type": "mercator", "center": [133, -28], "scale": 550},
+    "width": 500,
+    "height": 420,
+    "projection": {"type": "mercator", "center": [134, -28], "scale": 600},
+
     "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_50m_admin_1_states_provinces.topojson",
-        "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.min.geojson",
+        "format": {"type": "json", "property": "features"}
     },
+
     "transform": [
         {
-            "filter": "datum.properties.admin == 'Australia'"
-        },
-        {
-            "lookup": "properties.name",
+            "lookup": "properties.STATE_NAME",
             "from": {
                 "data": {"url": "data/TRA_state_visitors.csv"},
                 "key": "state_full",
@@ -21,7 +20,9 @@
             }
         }
     ],
+
     "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.8},
+
     "encoding": {
         "color": {
             "field": "visits_domestic",
@@ -30,7 +31,7 @@
             "legend": {"title": "Domestic visits", "format": ".2s"}
         },
         "tooltip": [
-            {"field": "properties.name", "type": "nominal", "title": "State"},
+            {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
             {"field": "state_code", "type": "nominal", "title": "Code"},
             {"field": "visits_domestic", "type": "quantitative", "format": ",", "title": "Visits"}
         ]
