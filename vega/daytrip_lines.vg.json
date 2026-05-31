@@ -4,7 +4,7 @@
         "text": "Day trips vs overnight trips",
         "subtitle": "Annual domestic trips by Australians, 2019–2025"
     },
-    "width": 800,
+    "width": "container",
     "height": 420,
     "data": {"url": "data/TRA_day_night.csv"},
 

@@ -4,7 +4,7 @@
         "text": "The cost gap: day visit vs overnight stay",
         "subtitle": "Average spend per visitor (AUD), by state — Year Ending June 2024"
     },
-    "width": 700,
+    "width": "container",
     "height": 380,
     "data": {"url": "data/TRA_spend_state.csv"},
 
