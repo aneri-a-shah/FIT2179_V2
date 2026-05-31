@@ -6,7 +6,9 @@ const charts = [
     {id: "#domestic_dots", spec: "vega/domestic_dots.vg.json"},
     {id: "#domestic_choro", spec: "vega/domestic_choro.vg.json"},
     {id: "#state_multiples", spec: "vega/state_small_multiples.vg.json"},
-    {id: "#state_combined", spec: "vega/state_combined.vg.json"}
+    {id: "#state_combined", spec: "vega/state_combined.vg.json"},
+    {id: "#daytrip_lines", spec: "vega/daytrip_lines.vg.json"},
+    {id: "#trip_spend", spec: "vega/trip_spend.vg.json"}
 ];
 
 charts.forEach(({id, spec}) => {

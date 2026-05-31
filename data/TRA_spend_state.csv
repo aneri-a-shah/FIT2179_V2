@@ -1,0 +1,17 @@
+﻿state,trip_type,avg_spend
+NSW,Day,165
+NSW,Overnight,826
+VIC,Day,150
+VIC,Overnight,794
+QLD,Day,150
+QLD,Overnight,1114
+WA,Day,171
+WA,Overnight,1114
+SA,Day,145
+SA,Overnight,882
+TAS,Day,151
+TAS,Overnight,1208
+NT,Day,183
+NT,Overnight,1851
+ACT,Day,276
+ACT,Overnight,848

@@ -1,0 +1,78 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "The cost gap: day visit vs overnight stay",
+        "subtitle": "Average spend per visitor (AUD), by state — Year Ending June 2024"
+    },
+    "width": 700,
+    "height": 380,
+    "data": {"url": "data/TRA_spend_state.csv"},
+
+    "transform": [
+        {
+            "joinaggregate": [
+                {"op": "max", "field": "avg_spend", "as": "high"},
+                {"op": "min", "field": "avg_spend", "as": "low"}
+            ],
+            "groupby": ["state"]
+        },
+        {"calculate": "datum.high - datum.low", "as": "gap"}
+    ],
+
+    "encoding": {
+        "y": {
+            "field": "state",
+            "type": "nominal",
+            "title": null,
+            "sort": {"field": "gap", "order": "descending"},
+            "axis": {"labelFontSize": 12, "labelFontWeight": "bold", "domain": false, "ticks": false}
+        }
+    },
+
+    "layer": [
+        {
+            "transform": [
+                {"pivot": "trip_type", "value": "avg_spend", "groupby": ["state", "gap"]}
+            ],
+            "mark": {"type": "rule", "color": "#cccccc", "strokeWidth": 4},
+            "encoding": {
+                "x": {
+                    "field": "Day",
+                    "type": "quantitative",
+                    "title": "Average spend per visitor (AUD)",
+                    "scale": {"nice": true},
+                    "axis": {"format": "$,.0f", "grid": true, "gridDash": [2, 4]}
+                },
+                "x2": {"field": "Overnight"}
+            }
+        },
+
+        {
+            "mark": {
+                "type": "circle",
+                "size": 320,
+                "stroke": "white",
+                "strokeWidth": 1.8,
+                "opacity": 1
+            },
+            "encoding": {
+                "x": {"field": "avg_spend", "type": "quantitative"},
+                "color": {
+                    "field": "trip_type",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["Day", "Overnight"],
+                        "range": ["#e8a33d", "#3b6b9c"]
+                    },
+                    "legend": {"title": "Trip type", "orient": "top-right"}
+                },
+                "tooltip": [
+                    {"field": "state", "type": "nominal", "title": "State"},
+                    {"field": "trip_type", "type": "nominal", "title": "Trip type"},
+                    {"field": "avg_spend", "type": "quantitative", "format": "$,.0f", "title": "Avg spend per visitor"},
+                    {"field": "gap", "type": "quantitative", "format": "$,.0f", "title": "Day–Overnight gap"}
+                ]
+            }
+        }
+    ]
+}

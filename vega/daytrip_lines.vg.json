@@ -1,0 +1,72 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Day trips vs overnight trips",
+        "subtitle": "Annual domestic trips by Australians, 2019–2025"
+    },
+    "width": 800,
+    "height": 420,
+    "data": {"url": "data/TRA_day_night.csv"},
+
+    "layer": [
+        {
+            "mark": {
+                "type": "line",
+                "interpolate": "monotone",
+                "strokeWidth": 3
+            },
+            "encoding": {
+                "x": {
+                    "field": "year",
+                    "type": "quantitative",
+                    "title": null,
+                    "axis": {"format": "d", "tickCount": 7, "labelFontSize": 12}
+                },
+                "y": {
+                    "field": "trips",
+                    "type": "quantitative",
+                    "title": "Annual domestic trips",
+                    "axis": {"format": ".2s"},
+                    "scale": {"domain": [0, 300000000]}
+                },
+                "color": {
+                    "field": "trip_type",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["Day", "Overnight"],
+                        "range": ["#e8a33d", "#3b6b9c"]
+                    },
+                    "legend": {"title": "Trip type"}
+                }
+            }
+        },
+
+        {
+            "mark": {
+                "type": "circle",
+                "size": 80,
+                "stroke": "white",
+                "strokeWidth": 1.5,
+                "opacity": 1
+            },
+            "encoding": {
+                "x": {"field": "year", "type": "quantitative"},
+                "y": {"field": "trips", "type": "quantitative"},
+                "color": {
+                    "field": "trip_type",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["Day", "Overnight"],
+                        "range": ["#e8a33d", "#3b6b9c"]
+                    },
+                    "legend": null
+                },
+                "tooltip": [
+                    {"field": "trip_type", "type": "nominal", "title": "Trip type"},
+                    {"field": "year", "type": "quantitative"},
+                    {"field": "trips", "type": "quantitative", "format": ",", "title": "Trips"}
+                ]
+            }
+        }
+    ]
+}
