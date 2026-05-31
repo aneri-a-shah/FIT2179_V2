@@ -1,0 +1,40 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Total Market Share", "subtitle": "All states compared (2019-2025)"},
+    "data": {"url": "data/TRA_international.csv"},
+    
+    "width": "container",
+    "height": 330,
+    "autosize": {"type": "fit", "contains": "padding"},
+    
+    "mark": {
+        "type": "line",
+        "point": {"filled": true, "size": 50},
+        "strokeWidth": 2.5
+    },
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year",
+            "axis": {"labelAngle": 0}
+        },
+        "y": {
+            "field": "visitors",
+            "type": "quantitative",
+            "title": "International Visitors",
+            "axis": {"format": ".2s"}
+        },
+        "color": {
+            "field": "state",
+            "type": "nominal",
+            "title": "State",
+            "scale": {"scheme": "category10"}
+        },
+        "tooltip": [
+            {"field": "state_full", "type": "nominal", "title": "State"},
+            {"field": "year", "type": "ordinal", "title": "Year"},
+            {"field": "visitors", "type": "quantitative", "format": ",", "title": "Visitors"}
+        ]
+    }
+}

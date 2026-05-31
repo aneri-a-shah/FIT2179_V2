@@ -5,6 +5,9 @@
         "subtitle": "Visitor recovery trajectory by state (2019-2025)"
     },
     "data": {"url": "data/TRA_international.csv"},
+    "width":"container",
+    "autosize": {"type": "fit", "contains": "padding"},
+
     "facet": {
         "field": "state",
         "type": "nominal",
@@ -13,11 +16,10 @@
         "header": {"labelFontSize": 13, "labelFontWeight": "bold"}
     },
     "spec": {
-        "width": 200,
-        "height": 150,
+        "height": 120,
         "mark": {
             "type": "line", 
-            "point": {"filled": true, "size": 40}, 
+            "point": {"filled": true, "size": 30}, 
             "strokeWidth": 2
         },
         "encoding": {
