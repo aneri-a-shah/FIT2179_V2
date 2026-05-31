@@ -1,0 +1,25 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "The 2025 Tourism Wallet", "subtitle": "Total expenditure breakdown (Dec 2025)"},
+    "width": "container",
+    "height": 300,
+    "autosize": {"type": "fit", "contains": "padding"},
+    "data": {"url": "data/TRA_budget_data.csv"},
+    "transform": [
+        {"filter": "datum.Quarter == 'December 2025'"}
+    ],
+    "mark": {"type": "arc", "innerRadius": 60, "stroke": "white", "strokeWidth": 2},
+    "encoding": {
+        "theta": {"field": "Amount", "type": "quantitative"},
+        "color": {
+            "field": "Category",
+            "type": "nominal",
+            "scale": {"scheme": "set2"},
+            "legend": {"title": "Expense Category", "orient": "right"}
+        },
+        "tooltip": [
+            {"field": "Category", "type": "nominal"},
+            {"field": "Amount", "type": "quantitative", "title": "Spend ($M)", "format": "$,.0f"}
+        ]
+    }
+}

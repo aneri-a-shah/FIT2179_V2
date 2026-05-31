@@ -1,0 +1,45 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Budget Shifts Across the Year", "subtitle": "Category as % of total quarterly spend"},
+    "width": "container",
+    "height": 300,
+    "autosize": {"type": "fit", "contains": "padding"},
+    "data": {"url": "data/TRA_budget_data.csv"},
+    "transform": [
+        {
+            "joinaggregate": [{"op": "sum", "field": "Amount", "as": "TotalQuarterSpend"}],
+            "groupby": ["Quarter"]
+        },
+        {
+            "calculate": "datum.Amount / datum.TotalQuarterSpend",
+            "as": "PercentOfBudget"
+        }
+    ],
+    "mark": {"type": "rect", "tooltip": true, "cornerRadius": 4},
+    "encoding": {
+        "x": {
+            "field": "Quarter",
+            "type": "nominal",
+            "title": null,
+            "sort": ["March 2025", "June 2025", "September 2025", "December 2025"],
+            "axis": {"labelAngle": -45}
+        },
+        "y": {
+            "field": "Category",
+            "type": "nominal",
+            "title": null
+        },
+        "color": {
+            "field": "PercentOfBudget",
+            "type": "quantitative",
+            "scale": {"scheme": "oranges"},
+            "legend": {"title": "% of Budget", "format": ".0%"}
+        },
+        "tooltip": [
+            {"field": "Quarter", "type": "nominal"},
+            {"field": "Category", "type": "nominal"},
+            {"field": "Amount", "type": "quantitative", "title": "Actual Spend ($M)", "format": "$,.0f"},
+            {"field": "PercentOfBudget", "type": "quantitative", "title": "Share of Budget", "format": ".1%"}
+        ]
+    }
+}
