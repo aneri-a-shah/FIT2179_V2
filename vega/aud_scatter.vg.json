@@ -5,7 +5,7 @@
         "subtitle": "Change in exchange rate vs change in visits, 2019 → 2025"
     },
     "width": "container",
-    "height": 300,
+    "height": 500,
     "data": {"url": "data/aud_travel.csv"},
 
     "layer": [
