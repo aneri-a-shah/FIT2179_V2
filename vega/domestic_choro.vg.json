@@ -6,8 +6,8 @@
     "projection": {"type": "mercator", "center": [134, -28], "scale": 600},
 
     "data": {
-        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.min.geojson",
-        "format": {"type": "json", "property": "features"}
+        "url": "data/aus_states.json",
+        "format": {"type": "topojson", "feature": "aus_states_clean"}
     },
 
     "transform": [

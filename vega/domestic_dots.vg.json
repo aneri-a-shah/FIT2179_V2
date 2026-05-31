@@ -8,12 +8,11 @@
     "layer": [
         {
             "data": {
-                "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.min.geojson",
-                "format": {"type": "json", "property": "features"}
+                "url": "data/aus_states.json",
+                "format": {"type": "topojson", "feature": "aus_states_clean"}
             },
             "mark": {"type": "geoshape", "fill": "#f3f3f3", "stroke": "#bbb", "strokeWidth": 0.6}
         },
-
         {
             "data": {"url": "data/TRA_destinations.csv"},
             "mark": {"type": "circle", "opacity": 0.75, "stroke": "white", "strokeWidth": 0.6},
