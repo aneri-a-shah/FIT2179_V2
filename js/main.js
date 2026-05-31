@@ -4,7 +4,8 @@ const charts = [
     {id: "#recovery_slope", spec: "vega/covid_slope.vg.json"},
     {id: "#recovery_bars", spec: "vega/covid_recovery.vg.json"},
     {id: "#domestic_dots", spec: "vega/domestic_dots.vg.json"},
-    {id: "#domestic_choro", spec: "vega/domestic_choro.vg.json"}
+    {id: "#domestic_choro", spec: "vega/domestic_choro.vg.json"},
+    {id: "#state_multiples", spec: "vega/state_small_multiples.vg.json"}
 ];
 
 charts.forEach(({id, spec}) => {

@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "The Battle for International Tourists", 
+        "subtitle": "Visitor recovery trajectory by state (2019-2025)"
+    },
+    "data": {"url": "data/TRA_international.csv"},
+    "facet": {
+        "field": "state",
+        "type": "nominal",
+        "columns": 4,
+        "title": null,
+        "header": {"labelFontSize": 13, "labelFontWeight": "bold"}
+    },
+    "spec": {
+        "width": 200,
+        "height": 150,
+        "mark": {
+            "type": "line", 
+            "point": {"filled": true, "size": 40}, 
+            "strokeWidth": 2
+        },
+        "encoding": {
+            "x": {
+                "field": "year",
+                "type": "ordinal",
+                "title": null,
+                "axis": {"labelAngle": -45}
+            },
+            "y": {
+                "field": "visitors",
+                "type": "quantitative",
+                "title": "International Visitors",
+                "axis": {"format": ".2s"}
+            },
+            "color": {
+                "field": "state",
+                "type": "nominal",
+                "legend": null
+            },
+            "tooltip": [
+                {"field": "state_full", "type": "nominal", "title": "State"},
+                {"field": "year", "type": "ordinal", "title": "Year"},
+                {"field": "visitors", "type": "quantitative", "format": ",", "title": "Visitors"},
+                {"field": "nights", "type": "quantitative", "format": ",", "title": "Nights"}
+            ]
+        }
+    }
+}
