@@ -90,3 +90,9 @@ p {
     width: 100%;
     min-width: 0;
 }
+
+.highlight-blue { color: #2563eb; font-weight: 600; }
+.highlight-orange { color: #ea580c; font-weight: 600; }
+.highlight-green { color: #16a34a; font-weight: 600; }
+.highlight-red { color: #dc2626; font-weight: 600; }
+.highlight-purple { color: #9333ea; font-weight: 600; }

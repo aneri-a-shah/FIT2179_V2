@@ -52,7 +52,7 @@
                 },
                 "color": {
                     "field": "category", "type": "nominal",
-                    "legend": {"title": "Region", "orient": "top", "direction": "horizontal", "titleAnchor": "middle"}
+                    "legend": {"title": "Region"}
                 },
                 "tooltip": [
                     {"field": "destination", "type": "nominal"},

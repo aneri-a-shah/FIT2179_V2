@@ -40,7 +40,7 @@
                 "color": {
                     "field": "category",
                     "type": "nominal",
-                    "legend": {"title": "Region", "orient": "bottom", "direction": "horizontal", "titleOrient": "top"}
+                    "legend": {"title": "Region", "orient": "bottom", "direction": "horizontal", "titleAnchor": "middle", "titleOrient": "top"}
                 },
                 "opacity": {
                     "condition": {"param": "hover", "value": 0.85},
