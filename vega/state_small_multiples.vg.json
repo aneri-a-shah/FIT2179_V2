@@ -36,6 +36,10 @@
             "color": {
                 "field": "state",
                 "type": "nominal",
+                "scale": {
+                    "domain": ["ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA"],
+                    "scheme": "category10"
+                },
                 "legend": null
             },
             "tooltip": [

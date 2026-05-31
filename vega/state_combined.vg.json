@@ -29,7 +29,10 @@
             "field": "state",
             "type": "nominal",
             "title": "State",
-            "scale": {"scheme": "category10"}
+            "scale": {
+                "domain": ["ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA"],
+                "scheme": "category10"
+            }
         },
         "tooltip": [
             {"field": "state_full", "type": "nominal", "title": "State"},
