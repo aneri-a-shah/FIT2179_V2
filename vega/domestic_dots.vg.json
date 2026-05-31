@@ -1,10 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {"text": "Top domestic destinations", "subtitle": "Dot size = overnight visits per year"},
-    "width": "container",
-    "height": 420,
-    "autosize": {"type": "fit", "contains": "padding"},
-    "projection": {"type": "mercator", "center": [134, -28], "scale": 600},
+    "width": 450,
+    "height": 380,
+    "projection": {"type": "mercator", "center": [134, -28], "scale": 550},
 
     "layer": [
         {
@@ -14,17 +13,16 @@
             },
             "mark": {"type": "geoshape", "fill": "#f3f3f3", "stroke": "#bbb", "strokeWidth": 0.6}
         },
-
         {
             "data": {"url": "data/TRA_destinations.csv"},
             "mark": {"type": "circle", "opacity": 0.6, "stroke": "white", "strokeWidth": 0.6},
             "encoding": {
                 "longitude": {"field": "lon", "type": "quantitative"},
-                "latitude": {"field": "lat", "type": "quantitative"},
+                "latitude":  {"field": "lat", "type": "quantitative"},
                 "size": {
                     "field": "visits",
                     "type": "quantitative",
-                    "scale": {"type": "sqrt", "range": [80, 1400]},
+                    "scale": {"type": "sqrt", "range": [80, 4000]},
                     "legend": {"title": "Visits per year", "format": ".2s"}
                 },
                 "color": {
